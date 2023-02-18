@@ -10,7 +10,6 @@ on:
 
 env:
   IBM_API_KEY: ${{ secrets.IBMCLOUD_API_KEY }}
-  VPC_ID: ${{ secrets.VPC_ID }}
   SUBNET_ID: ${{ secrets.SUBNET_ID }}
   RESOURCE_GROUP_ID: ${{ secrets.RESOURCE_GROUP_ID }}
   SECURITY_GROUP_ID: ${{ secrets.SECURITY_GROUP_ID }}
@@ -19,8 +18,6 @@ jobs:
   build-image:
     name: Build
     runs-on: ubuntu-latest
-    outputs:
-      iteration_id: ${{ steps.hcp.outputs.iteration_id }}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
