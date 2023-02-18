@@ -1,0 +1,33 @@
+name: Build and Deploy
+
+on:
+  push:
+    tags: ["v[0-9].[0-9]+.[0-9]+"]
+    branches:
+      - "development"
+      - "staging"
+      - "main"
+
+env:
+  IBM_API_KEY: ${{ secrets.IBMCLOUD_API_KEY }}
+  VPC_ID: ${{ secrets.VPC_ID }}
+  SUBNET_ID: ${{ secrets.SUBNET_ID }}
+  RESOURCE_GROUP_ID: ${{ secrets.RESOURCE_GROUP_ID }}
+  SECURITY_GROUP_ID: ${{ secrets.SECURITY_GROUP_ID }}
+
+jobs:
+  build-image:
+    name: Build
+    runs-on: ubuntu-latest
+    outputs:
+      iteration_id: ${{ steps.hcp.outputs.iteration_id }}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Packer Init
+        run: packer init .
+
+      - name: Packer Build - Branches
+        if: "startsWith(github.ref, 'refs/heads/')"
+        run: packer build . 
