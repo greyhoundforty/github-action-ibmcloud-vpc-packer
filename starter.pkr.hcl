@@ -27,10 +27,10 @@ variable "subnet_id" {
   default = "${env("SUBNET_ID")}"
 }
 
-variable "security_group_id" {
-  type = string
-  default = "${env("SECURITY_GROUP_ID")}"
-}
+# variable "security_group_id" {
+#   type = string
+#   default = "${env("SECURITY_GROUP_ID")}"
+# }
 
 locals {
   timestamp = regex_replace(timestamp(), "[- TZ:]", "")
@@ -43,7 +43,7 @@ source "ibmcloud-vpc" "starter" {
 
   subnet_id          = "${var.subnet_id}"
   resource_group_id  = "${var.resource_group_id}"
-  security_group_id  = "${var.security_group_id}"
+  security_group_id  = ""
   vsi_base_image_id  = "r006-4861e0a4-8d36-4462-b497-767351f1d371"
   vsi_profile        = "cx2-2x4"
   vsi_interface      = "public"
