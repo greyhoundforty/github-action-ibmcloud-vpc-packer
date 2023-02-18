@@ -44,7 +44,7 @@ source "ibmcloud-vpc" "starter" {
   subnet_id          = "${var.subnet_id}"
   resource_group_id  = "${var.resource_group_id}"
   security_group_id  = "${var.security_group_id}"
-  vsi_base_image_id  = "r038-6955ded7-4d13-40a8-b318-26d9323b12e3"
+  vsi_base_image_id  = "r006-4861e0a4-8d36-4462-b497-767351f1d371"
   vsi_profile        = "cx2-2x4"
   vsi_interface      = "public"
   vsi_user_data_file = ""
