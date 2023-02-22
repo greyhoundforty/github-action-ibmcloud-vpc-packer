@@ -27,7 +27,7 @@ jobs:
           echo "IBMCLOUD_API_KEY: $IBMCLOUD_API_KEY"
           echo "SUBNET_ID: $SUBNET_ID"
           echo "REGION: $REGION"
-          echo "RESOURCE_GROUP_ID: $RESOURCE_GROUP_ID"
+          echo "$RESOURCE_GROUP_ID" | base64 --decode
       # - name: Packer Init
       #   run: packer init .
 
