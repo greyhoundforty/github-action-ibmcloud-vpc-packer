@@ -7,6 +7,7 @@ LOGFILE="/tmp/packer-installer.log"
 
 echo -e "Hello from Packer template: `hostname -s`" | tee -a "$LOGFILE"
 
+
 main() {
     echo -e "[:: Updating system packages ::]" 
     install_system_packages() {
@@ -24,3 +25,4 @@ main() {
 } 
 
 main
+
