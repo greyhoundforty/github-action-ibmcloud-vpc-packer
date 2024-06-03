@@ -10,9 +10,9 @@ on:
 
 env:
   IBMCLOUD_API_KEY: ${{ secrets.IBMCLOUD_API_KEY }}
-  SUBNET_ID: ${{ secrets.SUBNET_ID }}
-  REGION: "us-south"
-  RESOURCE_GROUP_ID: ${{ secrets.RESOURCE_GROUP_ID }}
+  SUBNET_ID: ${{ vars.SUBNET_ID }}
+  REGION: ${{ vars.VPC_REGION }}
+  RESOURCE_GROUP_ID: ${{ vars.RESOURCE_GROUP_ID }}
 
 jobs:
   build-image:
